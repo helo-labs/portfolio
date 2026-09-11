@@ -6,10 +6,17 @@
   --tinta: #131320;
   --sutil: #83839a;
   --linha: #d6d6e2;
+  /* vivos: display grande, filete, marca. contraste de 3:1 basta aqui. */
   --roxo: #7c5cff;
   --teal: #14c8be;
-  --coral: #ff6a3d;
+  --rosa: #ea3a80;
+  /* fechados: texto pequeno, onde 3:1 não basta. todos acima de 4,2:1. */
+  --roxo-txt: #6a45f5;
+  --teal-txt: #0b807a;
+  --rosa-txt: #cc1f66;
+
   --acento: var(--roxo);
+  --acento-txt: var(--roxo-txt);
 
   --display: 'Clash Display', ui-sans-serif, system-ui, sans-serif;
   --texto: 'Switzer', ui-sans-serif, system-ui, sans-serif;
@@ -34,7 +41,7 @@ body {
 
 a { color: inherit; }
 
-::selection { background: var(--teal); color: #08131a; }
+::selection { background: var(--roxo-txt); color: #fff; }
 h1, h2, h3, h4 { margin: 0; font-weight: 600; }
 p { margin: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
@@ -175,12 +182,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding-top: 0.4rem;
 }
 .abertura-contatos a {
-  color: var(--roxo);
+  color: var(--roxo-txt);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--roxo) 38%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--roxo-txt) 42%, transparent);
   transition: border-color 200ms ease;
 }
-.abertura-contatos a:hover { border-bottom-color: var(--roxo); }
+.abertura-contatos a:hover { border-bottom-color: var(--roxo-txt); }
 
 /* ---------- capítulo ---------- */
 
@@ -190,12 +197,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* um acento por capítulo. a cor deixa de ser enfeite e vira orientação. */
-#stacks { --acento: var(--teal); }
-#automacao { --acento: var(--roxo); }
-#dados { --acento: var(--teal); }
-#web { --acento: var(--coral); }
-#desenvolvimento { --acento: var(--roxo); }
-#pesquisa { --acento: var(--teal); }
+#stacks { --acento: var(--teal); --acento-txt: var(--teal-txt); }
+#automacao { --acento: var(--roxo); --acento-txt: var(--roxo-txt); }
+#dados { --acento: var(--teal); --acento-txt: var(--teal-txt); }
+#web { --acento: var(--rosa); --acento-txt: var(--rosa-txt); }
+#desenvolvimento { --acento: var(--roxo); --acento-txt: var(--roxo-txt); }
+#pesquisa { --acento: var(--teal); --acento-txt: var(--teal-txt); }
 
 /* filete do acento no topo de cada capítulo */
 .capitulo { position: relative; }
@@ -220,7 +227,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-family: var(--mono);
   font-size: 0.66rem;
   letter-spacing: 0.14em;
-  color: var(--acento);
+  color: var(--acento-txt);
 }
 
 .capitulo-topo h2 {
@@ -390,8 +397,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .projeto:hover .etiquetas li {
-  color: var(--acento);
-  border-color: color-mix(in srgb, var(--acento) 45%, transparent);
+  color: var(--acento-txt);
+  border-color: color-mix(in srgb, var(--acento-txt) 50%, transparent);
 }
 
 .link {
@@ -404,8 +411,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: inline-flex;
   gap: 0.5rem;
   padding-bottom: 0.2rem;
-  border-bottom: 1px solid var(--acento);
-  color: var(--acento);
+  border-bottom: 1px solid var(--acento-txt);
+  color: var(--acento-txt);
 }
 .link span { transition: transform 240ms ease; }
 .link:hover span { transform: translate(3px, -3px); }
@@ -425,10 +432,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
-.faixa i { color: var(--coral); font-style: normal; padding: 0 0.15em; }
+.faixa i { color: var(--rosa); font-style: normal; padding: 0 0.15em; }
 .faixa span:nth-child(1) { color: var(--roxo); }
 .faixa span:nth-child(3) { color: var(--teal); }
-.faixa span:nth-child(4) { color: var(--coral); }
+.faixa span:nth-child(4) { color: var(--rosa); }
 
 .stack-grade {
   display: grid;
@@ -480,7 +487,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--acento);
+  color: var(--acento-txt);
 }
 
 .verbete p, .artigo p { max-width: 46ch; color: #3a3a4a; }
@@ -500,7 +507,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   text-transform: uppercase;
   color: var(--sutil);
 }
-.artigo-tipo { color: var(--acento); }
+.artigo-tipo { color: var(--acento-txt); }
 
 .artigo h3 {
   font-family: var(--display);
@@ -526,12 +533,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--sutil);
 }
 .rodape a {
-  color: var(--roxo);
+  color: var(--roxo-txt);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--roxo) 38%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--roxo-txt) 42%, transparent);
   transition: border-color 200ms ease;
 }
-.rodape a:hover { border-bottom-color: var(--roxo); }
+.rodape a:hover { border-bottom-color: var(--roxo-txt); }
 
 /* ---------- telas menores ---------- */
 

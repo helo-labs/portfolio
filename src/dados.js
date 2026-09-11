@@ -6,17 +6,17 @@
 export const SOBRE = {
   nome: 'heloisa pimentel',
   chamada: {
-    pt: ['eu gosto', 'de criar', 'coisas'],
-    en: ['i like', 'building', 'things'],
+    pt: ['eu gosto', 'de criar'],
+    en: ['i like', 'creating'],
   },
   // texto dela, o mesmo do perfil do github
   corpo: {
     pt: [
-      'Às vezes elas resolvem problemas reais, às vezes são só uma ideia que eu quis tirar do papel.',
+      'Às vezes o que eu crio resolve um problema real, às vezes é só uma ideia que eu quis tirar do papel.',
       'Trabalho principalmente com IA, dados, automação e desenvolvimento web. Estudo Ciência da Computação na UNIFAL-MG, faço freelance e pesquiso aprendizado de máquina.',
     ],
     en: [
-      "Sometimes they solve real problems, sometimes they're just ideas I wanted to bring to life.",
+      "Sometimes what I build solves a real problem, sometimes it's just an idea I wanted to bring to life.",
       'I mainly work with AI, data, automation and web development. I study Computer Science at UNIFAL-MG, freelance, and do machine learning research.',
     ],
   },
@@ -224,8 +224,8 @@ export const SEM_PRINT = {
 export const CONVITE = {
   uma: { pt: 'passe o mouse para ver em cor', en: 'hover to see it in colour' },
   varias: {
-    pt: (n) => `${n} telas · passe o mouse`,
-    en: (n) => `${n} screens · hover`,
+    pt: (n) => `${n} imagens · passe o mouse`,
+    en: (n) => `${n} images · hover`,
   },
 }
 
