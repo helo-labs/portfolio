@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SOBRE, STACKS, CAPITULOS, DESENVOLVIMENTO, ACADEMICO, RODAPE } from './dados.js'
 import Revela from './components/Revela.jsx'
 import Projeto from './components/Projeto.jsx'
@@ -7,6 +7,13 @@ import Stacks from './components/Stacks.jsx'
 export default function App() {
   const [idioma, setIdioma] = useState('pt')
   let contador = 0
+
+  // o botão troca o texto, mas quem diz ao leitor de tela e ao navegador em
+  // que idioma a página está é o atributo lang. sem isso o inglês continua
+  // sendo lido e oferecido para tradução como se fosse português.
+  useEffect(() => {
+    document.documentElement.lang = idioma === 'pt' ? 'pt-BR' : 'en'
+  }, [idioma])
 
 
   return (

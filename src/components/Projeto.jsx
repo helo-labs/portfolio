@@ -109,7 +109,7 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
         <h3>{projeto.nome}</h3>
         <p>{projeto.texto[idioma]}</p>
         <ul className="etiquetas">
-          {projeto.etiquetas.map((e) => (
+          {projeto.etiquetas[idioma].map((e) => (
             <li key={e}>{e}</li>
           ))}
         </ul>

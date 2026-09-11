@@ -49,7 +49,10 @@ export const CAPITULOS = [
         slug: 'alo',
         prints: 2,
         nome: 'alô',
-        etiquetas: ['openai realtime', 'webrtc', 'voz'],
+        etiquetas: {
+          pt: ['openai realtime', 'webrtc', 'voz'],
+          en: ['openai realtime', 'webrtc', 'voice'],
+        },
         ano: '2026',
         texto: {
           pt: 'Monte, teste e leve embora um agente de voz sem escrever código. A pessoa descreve quem é o agente em linguagem comum e conversa com ele ali mesmo, pelo microfone do navegador.',
@@ -63,7 +66,10 @@ export const CAPITULOS = [
         slug: 'catalead',
         prints: 3,
         nome: 'catalead',
-        etiquetas: ['graph api', 'regras', 'sem ia'],
+        etiquetas: {
+          pt: ['graph api', 'regras', 'sem ia'],
+          en: ['graph api', 'rules', 'no ai'],
+        },
         ano: '2026',
         texto: {
           pt: 'Acha quem está pedindo preço ou contato nos comentários do Instagram. A classificação inteira é um JSON que a pessoa abre e edita, e os dois motores, um em JS e outro em Python, são verificados um contra o outro.',
@@ -84,7 +90,10 @@ export const CAPITULOS = [
         slug: 'hipnos',
         prints: 4,
         nome: 'hipnos',
-        etiquetas: ['react', 'dados', 'narrativa'],
+        etiquetas: {
+          pt: ['react', 'dados', 'narrativa'],
+          en: ['react', 'data', 'narrative'],
+        },
         ano: '2026',
         texto: {
           pt: 'O sono de 58 mamíferos virou uma narrativa que se lê rolando a página. Cada gráfico entra na hora em que a frase precisa dele, em vez de todos de uma vez num painel.',
@@ -98,7 +107,10 @@ export const CAPITULOS = [
         slug: 'coffee-insight',
         prints: 1,
         nome: 'coffee insight',
-        etiquetas: ['python', 'pandas', 'plotly', 'streamlit'],
+        etiquetas: {
+          pt: ['python', 'pandas', 'plotly', 'streamlit'],
+          en: ['python', 'pandas', 'plotly', 'streamlit'],
+        },
         ano: '2026',
         texto: {
           pt: 'Treze meses de vendas de uma máquina de café, do arquivo cru às perguntas que ele responde. O que vende de manhã não é o que vende à tarde, e o dado mostra em que ponto do dia isso vira.',
@@ -118,7 +130,10 @@ export const CAPITULOS = [
         slug: 'salmos-contabilidade',
         prints: 1,
         nome: 'salmos contabilidade',
-        etiquetas: ['react', 'vite', 'cliente'],
+        etiquetas: {
+          pt: ['react', 'vite', 'cliente'],
+          en: ['react', 'vite', 'client'],
+        },
         ano: '2026',
         texto: {
           pt: 'Site institucional entregue para cliente.',
@@ -132,7 +147,10 @@ export const CAPITULOS = [
         slug: 'meu-hacktown',
         prints: 0,
         nome: 'meu hacktown',
-        etiquetas: ['html', 'edge', 'sem build'],
+        etiquetas: {
+          pt: ['html', 'edge', 'sem build'],
+          en: ['html', 'edge', 'no build'],
+        },
         ano: '2026',
         texto: {
           pt: 'A programação inteira do HackTown 2026 num arquivo só, com filtro por tema e o cronograma salvo no navegador. Sem build, sem conta, e com cache na borda pra abrir rápido no meio do evento.',

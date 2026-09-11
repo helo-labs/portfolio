@@ -99,3 +99,35 @@ test('nenhum projeto repete o mesmo endereço nos dois links', async () => {
     .map((p) => p.slug)
   assert.deepEqual(repetidos, [], `link principal e repo iguais em: ${repetidos.join(', ')}`)
 })
+
+// Etiqueta acrescentada só num idioma passa despercebida até alguém trocar o
+// botão. Este teste transforma isso em falha de build.
+test('cada projeto tem a mesma quantidade de etiquetas nos dois idiomas', async () => {
+  const { CAPITULOS } = await import('../dados.js')
+  const desiguais = CAPITULOS.flatMap((c) => c.projetos)
+    .filter((p) => p.etiquetas.pt.length !== p.etiquetas.en.length)
+    .map((p) => `${p.slug}: ${p.etiquetas.pt.length} pt vs ${p.etiquetas.en.length} en`)
+  assert.deepEqual(desiguais, [], desiguais.join(', '))
+})
+
+test('nenhum texto visível ficou sem o par em inglês', async () => {
+  const dados = await import('../dados.js')
+  const temPar = (o) => o && typeof o === 'object' && 'pt' in o && 'en' in o && o.pt && o.en
+  const faltando = []
+  for (const projeto of dados.CAPITULOS.flatMap((c) => c.projetos)) {
+    for (const campo of ['texto', 'linkRotulo', 'etiquetas']) {
+      if (!temPar(projeto[campo])) faltando.push(`${projeto.slug}.${campo}`)
+    }
+  }
+  for (const item of dados.DESENVOLVIMENTO.itens) {
+    for (const campo of ['estado', 'texto']) {
+      if (!temPar(item[campo])) faltando.push(`${item.nome}.${campo}`)
+    }
+  }
+  for (const item of dados.ACADEMICO.itens) {
+    for (const campo of ['tipo', 'meta', 'texto']) {
+      if (!temPar(item[campo])) faltando.push(`pesquisa.${campo}`)
+    }
+  }
+  assert.deepEqual(faltando, [], `sem par pt/en: ${faltando.join(', ')}`)
+})
