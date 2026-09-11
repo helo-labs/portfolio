@@ -29,10 +29,10 @@ export const STACKS = {
   grupos: [
     { rotulo: { pt: 'linguagem', en: 'language' }, itens: ['Python', 'JavaScript', 'TypeScript'] },
     { rotulo: { pt: 'interface', en: 'interface' }, itens: ['React', 'Next.js', 'Vite'] },
-    { rotulo: { pt: 'dados', en: 'data' }, itens: ['pandas', 'Plotly', 'Streamlit', 'SQL', 'PostgreSQL'] },
+    { rotulo: { pt: 'dados', en: 'data' }, itens: ['Pandas', 'Plotly', 'Streamlit', 'SQL', 'PostgreSQL'] },
     { rotulo: { pt: 'serviço', en: 'backend' }, itens: ['FastAPI', 'SQLite'] },
     { rotulo: { pt: 'modelos', en: 'models' }, itens: ['OpenAI', 'Claude', 'Gemini', 'Transformers'] },
-    { rotulo: { pt: 'automação', en: 'automation' }, itens: ['n8n', 'Make'] },
+    { rotulo: { pt: 'automação', en: 'automation' }, itens: ['N8n', 'Make'] },
   ],
 }
 

@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://api.fontshare.com" />
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=switzer@400,500,600&f[]=martian-mono@400,500&display=swap" rel="stylesheet" />
+    <!-- Fontes no próprio site. Pelo Fontshare, um pedido com várias famílias
+         devolvia só a primeira, então Switzer e a mono nunca chegavam a carregar.
+         Preload nas duas que desenham acima da dobra, para o nome não piscar. -->
+    <link rel="preload" href="/fonts/clash-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin />
     <title>Heloisa Pimentel</title>
     <meta name="description" content="Portfólio de Heloisa Pimentel. Projetos de dados, web, automação e IA." />
   </head>

@@ -109,9 +109,10 @@ export default function App() {
             <h2>{DESENVOLVIMENTO.titulo[idioma]}</h2>
           </Revela>
           <div className="colunas">
+            {/* nome aqui é nome próprio: texto puro, igual nos dois idiomas */}
             {DESENVOLVIMENTO.itens.map((item, i) => (
-              <Revela className="verbete" key={item.nome.pt} atraso={i * 80}>
-                <h3>{item.nome[idioma]}</h3>
+              <Revela className="verbete" key={item.nome} atraso={i * 80}>
+                <h3>{item.nome}</h3>
                 <span className="estado">{item.estado[idioma]}</span>
                 <p>{item.texto[idioma]}</p>
               </Revela>

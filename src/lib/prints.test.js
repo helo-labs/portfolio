@@ -131,3 +131,24 @@ test('nenhum texto visível ficou sem o par em inglês', async () => {
   }
   assert.deepEqual(faltando, [], `sem par pt/en: ${faltando.join(', ')}`)
 })
+
+// Um replace descuidado já apagou os nomes de "em desenvolvimento" em produção:
+// o campo é texto puro ali e objeto bilíngue na pesquisa, e tratar os dois
+// igual devolve undefined em silêncio.
+test('os nomes em desenvolvimento são texto puro e não vazio', async () => {
+  const { DESENVOLVIMENTO } = await import('../dados.js')
+  for (const item of DESENVOLVIMENTO.itens) {
+    assert.equal(typeof item.nome, 'string', `${JSON.stringify(item.nome)} devia ser string`)
+    assert.ok(item.nome.trim().length > 0, 'nome vazio em desenvolvimento')
+  }
+})
+
+test('os nomes da pesquisa são bilíngues e não vazios', async () => {
+  const { ACADEMICO } = await import('../dados.js')
+  for (const item of ACADEMICO.itens) {
+    for (const lingua of ['pt', 'en']) {
+      assert.equal(typeof item.nome?.[lingua], 'string', `nome.${lingua} devia ser string`)
+      assert.ok(item.nome[lingua].trim().length > 0, `nome.${lingua} vazio`)
+    }
+  }
+})
