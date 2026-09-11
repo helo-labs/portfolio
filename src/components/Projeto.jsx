@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import Revela from './Revela.jsx'
 import { SEM_PRINT, CONVITE } from '../dados.js'
+import { caminhosDosPrints, esperaDoPrint, numeroDeCapa } from '../lib/prints.js'
 
 // Uma página dupla de revista. O lado da imagem alterna a cada projeto, que é
 // o que impede a sequência de virar uma lista.
 export default function Projeto({ projeto, idioma, indice, invertido }) {
-  const prints = Array.from({ length: projeto.prints }, (_, i) =>
-    i === 0 ? `/shots/${projeto.slug}.jpg` : `/shots/${projeto.slug}-${i + 1}.jpg`,
-  )
+  const prints = caminhosDosPrints(projeto.slug, projeto.prints, import.meta.env.BASE_URL)
   const [ativo, setAtivo] = useState(0)
   const [dentro, setDentro] = useState(false)
   const figura = useRef(null)
@@ -15,12 +14,8 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
   // com mais de um print, o hover passeia por eles. o intervalo só existe
   // enquanto o ponteiro está em cima, então nada roda sozinho na página.
   useEffect(() => {
-    if (!dentro || prints.length < 2) return undefined
-    // quanto menos prints, mais tempo em cada um, senão dois prints viram
-    // um pisca-pisca. o primeiro ganha um respiro a mais, que é o que a
-    // pessoa está olhando quando encosta o mouse.
-    const base = prints.length === 2 ? 2200 : 1500
-    const espera = ativo === 0 ? base + 700 : base
+    const espera = esperaDoPrint(ativo, prints.length)
+    if (!dentro || espera === null) return undefined
     const t = setTimeout(() => setAtivo((n) => (n + 1) % prints.length), espera)
     return () => clearTimeout(t)
   }, [dentro, ativo, prints.length])
@@ -75,7 +70,7 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
           ) : (
             <span className="aguardando">{SEM_PRINT[idioma]}</span>
           )}
-          <span className="quadro-num">{String(indice).padStart(2, '0')}</span>
+          <span className="quadro-num">{numeroDeCapa(indice)}</span>
           {prints.length ? (
             <span className="convite" aria-hidden="true">
               {prints.length > 1
