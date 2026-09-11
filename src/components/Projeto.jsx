@@ -4,17 +4,14 @@ import { SEM_PRINT, CONVITE, REPO_ROTULO } from '../dados.js'
 import { caminhosDosPrints, esperaDoPrint, numeroDeCapa } from '../lib/prints.js'
 import { useTemHover } from '../lib/ponteiro.js'
 
-// Uma página dupla de revista. O lado da imagem alterna a cada projeto, que é
-// o que impede a sequência de virar uma lista.
+// Uma página dupla de revista. A alternância de lado está no CSS.
 export default function Projeto({ projeto, idioma, indice, invertido }) {
   const [ativo, setAtivo] = useState(0)
   const [dentro, setDentro] = useState(false)
-  // print que existe no dados.js mas não no disco vira imagem quebrada.
-  // guardar quais falharam e pular elas mantém o passeio funcionando.
+  // print declarado no dados.js mas ausente no disco vira imagem quebrada
   const [quebrados, setQuebrados] = useState(() => new Set())
-  // metade do peso das imagens é de print que só aparece no hover. eles ficam
-  // fora do documento até o primeiro hover, e depois disso o navegador cuida
-  // do cache. medido: 395 KB de 794 KB poupados em 10/09/2026.
+  // medido em 10/09/2026: os prints de hover são 395 KB de 794 KB, e ficam
+  // fora do documento até alguém de fato interagir
   const [jaPassou, setJaPassou] = useState(false)
   const figura = useRef(null)
   const temHover = useTemHover()
@@ -23,8 +20,7 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
   const disponiveis = todos.filter((caminho) => !quebrados.has(caminho))
   const prints = jaPassou ? disponiveis : disponiveis.slice(0, 1)
 
-  // com mais de um print, o hover passeia por eles. o intervalo só existe
-  // enquanto o ponteiro está em cima, então nada roda sozinho na página.
+  // o relógio só existe enquanto o ponteiro está em cima, para nada girar sozinho
   useEffect(() => {
     const espera = esperaDoPrint(ativo, disponiveis.length)
     if (!temHover || !dentro || espera === null) return undefined
@@ -36,7 +32,6 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
     if (!dentro) setAtivo(0)
   }, [dentro])
 
-  // deslocamento suave conforme entra na tela, o bastante pra dar profundidade
   useEffect(() => {
     const no = figura.current
     if (!no || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
@@ -127,8 +122,7 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
             {projeto.linkRotulo[idioma]}
             <span aria-hidden="true">↗</span>
           </a>
-          {/* o coffee insight não tem este, porque o link principal dele já é
-              o repositório e repetir seria só ruído */}
+          {/* ausente quando o link principal já é o repositório */}
           {projeto.repo ? (
             <a href={projeto.repo} target="_blank" rel="noreferrer" className="link-discreto">
               {REPO_ROTULO[idioma]}

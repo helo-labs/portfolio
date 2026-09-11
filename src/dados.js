@@ -1,7 +1,5 @@
 // Conteúdo do portfólio, nos dois idiomas lado a lado.
-//
-// Os prints entram em public/shots/<slug>.jpg, proporção 4:3.
-// O que está marcado com RASCUNHO foi escrito por mim e é pra Helo reescrever.
+// Os prints entram em public/shots/, na proporção dos originais (1854x941).
 
 export const SOBRE = {
   nome: 'heloisa pimentel',
@@ -9,7 +7,6 @@ export const SOBRE = {
     pt: ['eu gosto', 'de criar'],
     en: ['i like', 'creating'],
   },
-  // texto dela, o mesmo do perfil do github
   corpo: {
     pt: [
       'Às vezes o que eu crio resolve um problema real, às vezes é só uma ideia que eu quis tirar do papel.',
@@ -247,7 +244,6 @@ export const ACADEMICO = {
   ],
 }
 
-// rótulo do link secundário, o discreto
 export const REPO_ROTULO = { pt: 'repositório', en: 'repository' }
 
 export const SEM_PRINT = {
@@ -255,15 +251,14 @@ export const SEM_PRINT = {
   en: 'screenshot coming',
 }
 
-// convite pra passar o mouse. sem isso ninguém descobre que a imagem reage.
+// sem convite ninguém descobre que a imagem reage.
 export const CONVITE = {
   uma: { pt: 'passe o mouse para ver em cor', en: 'hover to see it in colour' },
   varias: {
     pt: (n) => `${n} imagens · passe o mouse`,
     en: (n) => `${n} images · hover`,
   },
-  // no toque não existe hover, então o convite precisa pedir outra coisa.
-  // e com um print só não há o que pedir, a imagem já está lá.
+  // no toque não existe hover, então o pedido tem que ser outro
   toque: {
     pt: (n) => `${n} imagens · toque para ver`,
     en: (n) => `${n} images · tap to see`,

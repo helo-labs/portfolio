@@ -8,9 +8,7 @@ export default function App() {
   const [idioma, setIdioma] = useState('pt')
   let contador = 0
 
-  // o botão troca o texto, mas quem diz ao leitor de tela e ao navegador em
-  // que idioma a página está é o atributo lang. sem isso o inglês continua
-  // sendo lido e oferecido para tradução como se fosse português.
+  // sem atualizar o lang, o leitor de tela lê o inglês como se fosse português
   useEffect(() => {
     document.documentElement.lang = idioma === 'pt' ? 'pt-BR' : 'en'
   }, [idioma])

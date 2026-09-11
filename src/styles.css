@@ -88,7 +88,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--tinta);
 }
 
-/* ponto parado, só a marca. a versão que pulsava ficou tosca. */
+/* parado de propósito, a versão que pulsava foi descartada */
 .marca-ponto {
   width: 0.62em;
   height: 0.62em;
@@ -248,7 +248,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: clamp(2rem, 6vh, 4.5rem) var(--margem);
 }
 
-/* o lado alterna, é o que impede a sequência de virar lista */
 .projeto-figura { margin: 0; }
 
 /* o lado alterna a cada projeto, é o que impede a sequência de virar lista */
@@ -317,8 +316,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .quadro-pontos i.aceso { background: #fff; transform: scale(1.35); }
 
-/* o convite fica visível em repouso e sai de cena quando o hover acontece,
-   porque a partir dali a própria imagem já explica */
+/* sai de cena no hover, porque a partir dali a imagem já se explica */
 .convite {
   position: absolute;
   left: 0.9rem;
@@ -420,8 +418,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   gap: 0.4rem 1.1rem;
 }
 
-/* o secundário existe pra quem procura, não pra disputar com o principal:
-   sem borda, um corpo menor e o tom apagado até o mouse chegar */
+/* para quem procura, não para disputar com o link principal */
 .link-discreto {
   font-family: var(--mono);
   font-size: 0.56rem;
@@ -594,11 +591,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* no empilhado a imagem vem sempre primeiro, alternar não significa nada */
   .projeto.invertido .projeto-figura { order: 0; }
 
-  /* sem hover no toque, a cor entra de uma vez e o passeio não existe */
+  /* sem hover, a cor não pode depender dele */
   .quadro img { filter: grayscale(0.3) contrast(1.02); }
   .quadro { transform: none; cursor: pointer; }
-  /* no toque o convite pede toque, então ele fica. e as bolinhas do contador
-     precisam estar sempre visíveis, porque não existe hover pra revelá-las. */
+  /* as bolinhas ficam sempre visíveis, não há hover pra revelá-las */
   .quadro-pontos { opacity: 1; }
 
   .capitulo-topo { padding-top: 1.8rem; padding-bottom: 1.8rem; }

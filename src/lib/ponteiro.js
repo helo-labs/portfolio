@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 
-// Diz se o aparelho tem ponteiro que passa por cima sem clicar. Serve pra
-// decidir entre hover e toque, e reage se a resposta mudar no meio, que é o
-// caso de tablet com teclado acoplado e desacoplado.
+// Capacidade do ponteiro, não largura de tela: tablet com teclado acoplado tem
+// hover, notebook com tela sensível ao toque tem mouse. Reage se isso mudar.
 const CONSULTA = '(hover: hover) and (pointer: fine)'
 
 export function useTemHover() {

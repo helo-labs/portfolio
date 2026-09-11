@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-// Entra quando aparece na tela. Quem pediu menos movimento no sistema já está
-// coberto pelo prefers-reduced-motion no CSS, aqui só entra a classe.
+// Entra quando aparece na tela. O prefers-reduced-motion é tratado no CSS.
 export default function Revela({ children, className = '', atraso = 0, como = 'div' }) {
   const alvo = useRef(null)
   const [dentro, setDentro] = useState(false)
