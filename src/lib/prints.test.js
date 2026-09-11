@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync, existsSync } from 'node:fs'
+import { existsSync } from 'node:fs'
 import { caminhosDosPrints, esperaDoPrint, numeroDeCapa, RITMO } from './prints.js'
 
 test('o primeiro print não leva sufixo, os seguintes levam', () => {

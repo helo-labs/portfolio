@@ -121,8 +121,8 @@ export const CAPITULOS = [
           pt: 'Site institucional entregue para cliente.',
           en: 'Institutional website delivered for a client.',
         },
-        link: 'https://github.com/helo-labs/salmos-contabilidade-preview',
-        linkRotulo: { pt: 'ver o preview', en: 'view preview' },
+        link: 'https://www.salmoscontabilidade.com.br/',
+        linkRotulo: { pt: 'abrir o site', en: 'open site' },
       },
       {
         slug: 'meu-hacktown',
