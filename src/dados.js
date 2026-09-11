@@ -180,8 +180,8 @@ export const ACADEMICO = {
       tipo: { pt: 'trabalho de conclusão de curso', en: 'undergraduate thesis' },
       nome: 'Aplicação de Aprendizado de Máquina na análise do nível de Sustentabilidade na indústria da Moda',
       meta: {
-        pt: 'UNIFAL-MG · defesa em dezembro de 2026 · orientação de Angela Leite Moreno e Mariane Moreira de Souza',
-        en: 'UNIFAL-MG · defense in December 2026 · advised by Angela Leite Moreno and Mariane Moreira de Souza',
+        pt: 'UNIFAL-MG · defesa no primeiro semestre de 2027 · orientação de Angela Leite Moreno e Mariane Moreira de Souza',
+        en: 'UNIFAL-MG · defense in the first half of 2027 · advised by Angela Leite Moreno and Mariane Moreira de Souza',
       },
       texto: {
         pt: 'Construção de um dataset aberto e padronizado de indicadores ESG de marcas de moda, extraídos de relatórios públicos, para aplicar modelos de aprendizado de máquina que classifiquem nível de sustentabilidade. Mais de 100 marcas no banco até agora.',
