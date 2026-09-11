@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Revela from './Revela.jsx'
-import { SEM_PRINT } from '../dados.js'
+import { SEM_PRINT, CONVITE } from '../dados.js'
 
 // Uma página dupla de revista. O lado da imagem alterna a cada projeto, que é
 // o que impede a sequência de virar uma lista.
@@ -76,6 +76,13 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
             <span className="aguardando">{SEM_PRINT[idioma]}</span>
           )}
           <span className="quadro-num">{String(indice).padStart(2, '0')}</span>
+          {prints.length ? (
+            <span className="convite" aria-hidden="true">
+              {prints.length > 1
+                ? CONVITE.varias[idioma](prints.length)
+                : CONVITE.uma[idioma]}
+            </span>
+          ) : null}
           {prints.length > 1 ? (
             <span className="quadro-pontos" aria-hidden="true">
               {prints.map((c, i) => (

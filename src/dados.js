@@ -220,7 +220,16 @@ export const SEM_PRINT = {
   en: 'screenshot coming',
 }
 
+// convite pra passar o mouse. sem isso ninguém descobre que a imagem reage.
+export const CONVITE = {
+  uma: { pt: 'passe o mouse para ver em cor', en: 'hover to see it in colour' },
+  varias: {
+    pt: (n) => `${n} telas · passe o mouse`,
+    en: (n) => `${n} screens · hover`,
+  },
+}
+
 export const RODAPE = {
-  pt: 'feito por mim, em código',
-  en: 'built by me, in code',
+  pt: 'heloisa pimentel · alfenas, mg · 2026',
+  en: 'heloisa pimentel · alfenas, brazil · 2026',
 }

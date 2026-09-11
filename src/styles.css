@@ -8,6 +8,8 @@
   --linha: #d6d6e2;
   --roxo: #7c5cff;
   --teal: #14c8be;
+  --coral: #ff6a3d;
+  --acento: var(--roxo);
 
   --display: 'Clash Display', ui-sans-serif, system-ui, sans-serif;
   --texto: 'Switzer', ui-sans-serif, system-ui, sans-serif;
@@ -31,6 +33,8 @@ body {
 }
 
 a { color: inherit; }
+
+::selection { background: var(--teal); color: #08131a; }
 h1, h2, h3, h4 { margin: 0; font-weight: 600; }
 p { margin: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
@@ -180,7 +184,30 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- capítulo ---------- */
 
-.capitulo { padding: 0 0 var(--respiro); border-top: 1px solid var(--linha); }
+.capitulo {
+  padding: 0 0 var(--respiro);
+  border-top: 1px solid var(--linha);
+}
+
+/* um acento por capítulo. a cor deixa de ser enfeite e vira orientação. */
+#stacks { --acento: var(--teal); }
+#automacao { --acento: var(--roxo); }
+#dados { --acento: var(--teal); }
+#web { --acento: var(--coral); }
+#desenvolvimento { --acento: var(--roxo); }
+#pesquisa { --acento: var(--teal); }
+
+/* filete do acento no topo de cada capítulo */
+.capitulo { position: relative; }
+.capitulo::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: clamp(3rem, 9vw, 8rem);
+  height: 2px;
+  background: var(--acento);
+}
 
 .capitulo-topo {
   display: flex;
@@ -193,7 +220,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-family: var(--mono);
   font-size: 0.66rem;
   letter-spacing: 0.14em;
-  color: var(--roxo);
+  color: var(--acento);
 }
 
 .capitulo-topo h2 {
@@ -283,6 +310,45 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .quadro-pontos i.aceso { background: #fff; transform: scale(1.35); }
 
+/* o convite fica visível em repouso e sai de cena quando o hover acontece,
+   porque a partir dali a própria imagem já explica */
+.convite {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.85rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.34rem 0.6rem;
+  border-radius: 2px;
+  background: #ffffffe0;
+  color: #131320;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.convite::before {
+  content: '';
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--roxo);
+  animation: pisca-convite 2.2s ease-in-out infinite;
+}
+
+@keyframes pisca-convite {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.quadro.aceso .convite { opacity: 0; transform: translateY(4px); }
+
+.quadro { cursor: crosshair; }
+
 .aguardando {
   position: absolute;
   inset: 0;
@@ -296,6 +362,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .projeto-texto { display: grid; gap: 1.1rem; align-content: center; }
+
+.projeto-texto h3 { transition: color 260ms ease; }
+.projeto:hover .projeto-texto h3 { color: var(--acento); }
 
 .projeto-texto h3 {
   font-family: var(--display);
@@ -317,6 +386,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--linha);
   border-radius: 3px;
   color: var(--sutil);
+  transition: color 240ms ease, border-color 240ms ease;
+}
+
+.projeto:hover .etiquetas li {
+  color: var(--acento);
+  border-color: color-mix(in srgb, var(--acento) 45%, transparent);
 }
 
 .link {
@@ -329,7 +404,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: inline-flex;
   gap: 0.5rem;
   padding-bottom: 0.2rem;
-  border-bottom: 1px solid var(--tinta);
+  border-bottom: 1px solid var(--acento);
+  color: var(--acento);
 }
 .link span { transition: transform 240ms ease; }
 .link:hover span { transform: translate(3px, -3px); }
@@ -349,7 +425,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
-.faixa i { color: var(--teal); font-style: normal; padding: 0 0.15em; }
+.faixa i { color: var(--coral); font-style: normal; padding: 0 0.15em; }
+.faixa span:nth-child(1) { color: var(--roxo); }
+.faixa span:nth-child(3) { color: var(--teal); }
+.faixa span:nth-child(4) { color: var(--coral); }
 
 .stack-grade {
   display: grid;
@@ -401,7 +480,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--roxo);
+  color: var(--acento);
 }
 
 .verbete p, .artigo p { max-width: 46ch; color: #3a3a4a; }
@@ -421,7 +500,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   text-transform: uppercase;
   color: var(--sutil);
 }
-.artigo-tipo { color: var(--roxo); }
+.artigo-tipo { color: var(--acento); }
 
 .artigo h3 {
   font-family: var(--display);
@@ -483,7 +562,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   /* sem hover no toque, a cor entra de uma vez e o passeio não existe */
   .quadro img { filter: grayscale(0.3) contrast(1.02); }
-  .quadro { transform: none; }
+  .quadro { transform: none; cursor: default; }
+  /* no toque não existe hover, então o convite mentiria */
+  .convite { display: none; }
 
   .capitulo-topo { padding-top: 1.8rem; padding-bottom: 1.8rem; }
   .stack-grade { grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 1.5rem 1.2rem; }
@@ -521,6 +602,7 @@ img { max-width: 100%; }
   .revela { opacity: 1; transform: none; transition: none; }
   .nome-letra { animation: none; opacity: 1; }
   .faixa { animation: none; }
+  .convite::before { animation: none; }
   .quadro { transform: none; }
   * { transition-duration: 0.01ms !important; }
 }
