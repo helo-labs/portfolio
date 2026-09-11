@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Revela from './Revela.jsx'
-import { SEM_PRINT, CONVITE } from '../dados.js'
+import { SEM_PRINT, CONVITE, REPO_ROTULO } from '../dados.js'
 import { caminhosDosPrints, esperaDoPrint, numeroDeCapa } from '../lib/prints.js'
 
 // Uma página dupla de revista. O lado da imagem alterna a cada projeto, que é
@@ -113,10 +113,19 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
             <li key={e}>{e}</li>
           ))}
         </ul>
-        <a href={projeto.link} target="_blank" rel="noreferrer" className="link">
-          {projeto.linkRotulo[idioma]}
-          <span aria-hidden="true">↗</span>
-        </a>
+        <div className="acoes">
+          <a href={projeto.link} target="_blank" rel="noreferrer" className="link">
+            {projeto.linkRotulo[idioma]}
+            <span aria-hidden="true">↗</span>
+          </a>
+          {/* o coffee insight não tem este, porque o link principal dele já é
+              o repositório e repetir seria só ruído */}
+          {projeto.repo ? (
+            <a href={projeto.repo} target="_blank" rel="noreferrer" className="link-discreto">
+              {REPO_ROTULO[idioma]}
+            </a>
+          ) : null}
+        </div>
       </Revela>
     </article>
   )

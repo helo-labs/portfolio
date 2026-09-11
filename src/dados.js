@@ -57,6 +57,7 @@ export const CAPITULOS = [
         },
         link: 'https://alo-voice-agents-kit.pages.dev',
         linkRotulo: { pt: 'abrir o site', en: 'open site' },
+        repo: 'https://github.com/helo-labs/alo-voice-agents-kit',
       },
       {
         slug: 'catalead',
@@ -70,6 +71,7 @@ export const CAPITULOS = [
         },
         link: 'https://catalead.pages.dev',
         linkRotulo: { pt: 'abrir o site', en: 'open site' },
+        repo: 'https://github.com/helo-labs/catalead',
       },
     ],
   },
@@ -90,6 +92,7 @@ export const CAPITULOS = [
         },
         link: 'https://hipnos.pages.dev',
         linkRotulo: { pt: 'abrir o site', en: 'open site' },
+        repo: 'https://github.com/helo-labs/sono-dos-mamiferos',
       },
       {
         slug: 'coffee-insight',
@@ -123,6 +126,7 @@ export const CAPITULOS = [
         },
         link: 'https://www.salmoscontabilidade.com.br/',
         linkRotulo: { pt: 'abrir o site', en: 'open site' },
+        repo: 'https://github.com/helo-labs/salmos-contabilidade-preview',
       },
       {
         slug: 'meu-hacktown',
@@ -136,6 +140,7 @@ export const CAPITULOS = [
         },
         link: 'https://meu-hacktown.pages.dev',
         linkRotulo: { pt: 'abrir o site', en: 'open site' },
+        repo: 'https://github.com/helo-labs/meu-hacktown',
       },
     ],
   },
@@ -214,6 +219,9 @@ export const ACADEMICO = {
     },
   ],
 }
+
+// rótulo do link secundário, o discreto
+export const REPO_ROTULO = { pt: 'repositório', en: 'repository' }
 
 export const SEM_PRINT = {
   pt: 'print a caminho',

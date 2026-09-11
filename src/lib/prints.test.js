@@ -80,3 +80,22 @@ test('nenhum print sobrando no disco sem estar declarado', async () => {
     .filter((c) => !declarados.has(c))
   assert.deepEqual(orfaos, [], `arquivos sem dono: ${orfaos.join(', ')}`)
 })
+
+// Os links são conteúdo, mas errar um deles só aparece quando alguém clica.
+test('todo link secundário aponta para um repositório do helo-labs', async () => {
+  const { CAPITULOS } = await import('../dados.js')
+  const projetos = CAPITULOS.flatMap((c) => c.projetos)
+  const torto = projetos
+    .filter((p) => p.repo)
+    .filter((p) => !p.repo.startsWith('https://github.com/helo-labs/'))
+    .map((p) => `${p.slug}: ${p.repo}`)
+  assert.deepEqual(torto, [], `repo fora do padrão: ${torto.join(', ')}`)
+})
+
+test('nenhum projeto repete o mesmo endereço nos dois links', async () => {
+  const { CAPITULOS } = await import('../dados.js')
+  const repetidos = CAPITULOS.flatMap((c) => c.projetos)
+    .filter((p) => p.repo && p.repo === p.link)
+    .map((p) => p.slug)
+  assert.deepEqual(repetidos, [], `link principal e repo iguais em: ${repetidos.join(', ')}`)
+})

@@ -407,13 +407,39 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-  justify-self: start;
   display: inline-flex;
   gap: 0.5rem;
   padding-bottom: 0.2rem;
   border-bottom: 1px solid var(--acento-txt);
   color: var(--acento-txt);
 }
+.acoes {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+}
+
+/* o secundário existe pra quem procura, não pra disputar com o principal:
+   sem borda, um corpo menor e o tom apagado até o mouse chegar */
+.link-discreto {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sutil);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.2rem;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.link-discreto:hover,
+.link-discreto:focus-visible {
+  color: var(--acento-txt);
+  border-bottom-color: color-mix(in srgb, var(--acento-txt) 40%, transparent);
+}
+
 .link span { transition: transform 240ms ease; }
 .link:hover span { transform: translate(3px, -3px); }
 
