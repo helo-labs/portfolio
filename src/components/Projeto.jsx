@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Revela from './Revela.jsx'
 import { SEM_PRINT, CONVITE, REPO_ROTULO } from '../dados.js'
 import { caminhosDosPrints, esperaDoPrint, numeroDeCapa } from '../lib/prints.js'
+import { useTemHover } from '../lib/ponteiro.js'
 
 // Uma página dupla de revista. O lado da imagem alterna a cada projeto, que é
 // o que impede a sequência de virar uma lista.
@@ -16,6 +17,7 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
   // do cache. medido: 395 KB de 794 KB poupados em 10/09/2026.
   const [jaPassou, setJaPassou] = useState(false)
   const figura = useRef(null)
+  const temHover = useTemHover()
 
   const todos = caminhosDosPrints(projeto.slug, projeto.prints, import.meta.env.BASE_URL)
   const disponiveis = todos.filter((caminho) => !quebrados.has(caminho))
@@ -25,10 +27,10 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
   // enquanto o ponteiro está em cima, então nada roda sozinho na página.
   useEffect(() => {
     const espera = esperaDoPrint(ativo, disponiveis.length)
-    if (!dentro || espera === null) return undefined
+    if (!temHover || !dentro || espera === null) return undefined
     const t = setTimeout(() => setAtivo((n) => (n + 1) % disponiveis.length), espera)
     return () => clearTimeout(t)
-  }, [dentro, ativo, disponiveis.length])
+  }, [temHover, dentro, ativo, disponiveis.length])
 
   useEffect(() => {
     if (!dentro) setAtivo(0)
@@ -68,6 +70,11 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
             setJaPassou(true)
             setDentro(true)
           }}
+          onClick={() => {
+            if (temHover || disponiveis.length < 2) return
+            setJaPassou(true)
+            setAtivo((n) => (n + 1) % disponiveis.length)
+          }}
           onMouseLeave={() => setDentro(false)}
         >
           {prints.length ? (
@@ -88,11 +95,13 @@ export default function Projeto({ projeto, idioma, indice, invertido }) {
             <span className="aguardando">{SEM_PRINT[idioma]}</span>
           )}
           <span className="quadro-num">{numeroDeCapa(indice)}</span>
-          {prints.length ? (
+          {prints.length && (temHover || disponiveis.length > 1) ? (
             <span className="convite" aria-hidden="true">
-              {disponiveis.length > 1
-                ? CONVITE.varias[idioma](disponiveis.length)
-                : CONVITE.uma[idioma]}
+              {temHover
+                ? disponiveis.length > 1
+                  ? CONVITE.varias[idioma](disponiveis.length)
+                  : CONVITE.uma[idioma]
+                : CONVITE.toque[idioma](disponiveis.length)}
             </span>
           ) : null}
           {disponiveis.length > 1 ? (

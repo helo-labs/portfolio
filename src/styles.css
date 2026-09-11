@@ -596,9 +596,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   /* sem hover no toque, a cor entra de uma vez e o passeio não existe */
   .quadro img { filter: grayscale(0.3) contrast(1.02); }
-  .quadro { transform: none; cursor: default; }
-  /* no toque não existe hover, então o convite mentiria */
-  .convite { display: none; }
+  .quadro { transform: none; cursor: pointer; }
+  /* no toque o convite pede toque, então ele fica. e as bolinhas do contador
+     precisam estar sempre visíveis, porque não existe hover pra revelá-las. */
+  .quadro-pontos { opacity: 1; }
 
   .capitulo-topo { padding-top: 1.8rem; padding-bottom: 1.8rem; }
   .stack-grade { grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 1.5rem 1.2rem; }

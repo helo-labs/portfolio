@@ -262,6 +262,12 @@ export const CONVITE = {
     pt: (n) => `${n} imagens · passe o mouse`,
     en: (n) => `${n} images · hover`,
   },
+  // no toque não existe hover, então o convite precisa pedir outra coisa.
+  // e com um print só não há o que pedir, a imagem já está lá.
+  toque: {
+    pt: (n) => `${n} imagens · toque para ver`,
+    en: (n) => `${n} images · tap to see`,
+  },
 }
 
 export const RODAPE = {
