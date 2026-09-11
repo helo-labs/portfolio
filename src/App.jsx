@@ -112,8 +112,8 @@ export default function App() {
           </Revela>
           <div className="colunas">
             {DESENVOLVIMENTO.itens.map((item, i) => (
-              <Revela className="verbete" key={item.nome} atraso={i * 80}>
-                <h3>{item.nome}</h3>
+              <Revela className="verbete" key={item.nome.pt} atraso={i * 80}>
+                <h3>{item.nome[idioma]}</h3>
                 <span className="estado">{item.estado[idioma]}</span>
                 <p>{item.texto[idioma]}</p>
               </Revela>
@@ -128,9 +128,9 @@ export default function App() {
             <h2>{ACADEMICO.titulo[idioma]}</h2>
           </Revela>
           {ACADEMICO.itens.map((item, i) => (
-            <Revela className="artigo" key={item.nome} atraso={i * 80}>
+            <Revela className="artigo" key={item.nome.pt} atraso={i * 80}>
               <span className="artigo-tipo">{item.tipo[idioma]}</span>
-              <h3>{item.nome}</h3>
+              <h3>{item.nome[idioma]}</h3>
               <span className="artigo-meta">{item.meta[idioma]}</span>
               <p>{item.texto[idioma]}</p>
             </Revela>

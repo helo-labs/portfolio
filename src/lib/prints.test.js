@@ -125,7 +125,7 @@ test('nenhum texto visível ficou sem o par em inglês', async () => {
     }
   }
   for (const item of dados.ACADEMICO.itens) {
-    for (const campo of ['tipo', 'meta', 'texto']) {
+    for (const campo of ['tipo', 'meta', 'texto', 'nome']) {
       if (!temPar(item[campo])) faltando.push(`pesquisa.${campo}`)
     }
   }

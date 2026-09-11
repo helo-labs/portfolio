@@ -201,7 +201,10 @@ export const ACADEMICO = {
   itens: [
     {
       tipo: { pt: 'trabalho de conclusão de curso', en: 'undergraduate thesis' },
-      nome: 'Aplicação de Aprendizado de Máquina na análise do nível de Sustentabilidade na indústria da Moda',
+      nome: {
+        pt: 'Aplicação de Aprendizado de Máquina na análise do nível de Sustentabilidade na indústria da Moda',
+        en: 'Applying machine learning to assess the level of sustainability in the fashion industry',
+      },
       meta: {
         pt: 'UNIFAL-MG · defesa no primeiro semestre de 2027 · orientação de Angela Leite Moreno e Mariane Moreira de Souza',
         en: 'UNIFAL-MG · defense in the first half of 2027 · advised by Angela Leite Moreno and Mariane Moreira de Souza',
@@ -212,20 +215,26 @@ export const ACADEMICO = {
       },
     },
     {
-      tipo: { pt: 'inicia\u00e7\u00e3o cient\u00edfica \u00b7 trabalho mais recente', en: 'undergraduate research \u00b7 latest work' },
-      nome: 'Quando o relato deixa de ser obrigat\u00f3rio: auditoria ESG automatizada, supervis\u00e3o humana e resili\u00eancia profissional',
+      tipo: { pt: 'iniciação científica · trabalho mais recente', en: 'undergraduate research · latest work' },
+      nome: {
+        pt: 'Quando o relato deixa de ser obrigatório: auditoria ESG automatizada, supervisão humana e resiliência profissional',
+        en: 'When reporting is no longer mandatory: automated ESG auditing, human oversight and professional resilience',
+      },
       meta: {
-        pt: 'VII CoBICET, 2026, ampliado em cap\u00edtulo \u00b7 com Angela Leite Moreno e Mariane Moreira de Souza',
-        en: 'VII CoBICET, 2026, expanded into a book chapter \u00b7 with Angela Leite Moreno and Mariane Moreira de Souza',
+        pt: 'VII CoBICET, 2026, ampliado em capítulo · com Angela Leite Moreno e Mariane Moreira de Souza',
+        en: 'VII CoBICET, 2026, expanded into a book chapter · with Angela Leite Moreno and Mariane Moreira de Souza',
       },
       texto: {
-        pt: 'Entre fevereiro e maio de 2026 as tr\u00eas maiores jurisdi\u00e7\u00f5es de mercado de capitais recuaram da divulga\u00e7\u00e3o obrigat\u00f3ria de sustentabilidade, enquanto punir alega\u00e7\u00e3o sem base endureceu. Quando relatar deixa de ser exig\u00eancia e mentir continua pun\u00edvel, o \u00f4nus da credibilidade migra do regulador para quem verifica.',
+        pt: 'Entre fevereiro e maio de 2026 as três maiores jurisdições de mercado de capitais recuaram da divulgação obrigatória de sustentabilidade, enquanto punir alegação sem base endureceu. Quando relatar deixa de ser exigência e mentir continua punível, o ônus da credibilidade migra do regulador para quem verifica.',
         en: 'Between February and May 2026 the three largest capital market jurisdictions retreated from mandatory sustainability disclosure, while punishing unfounded claims got stricter. When reporting stops being required and lying stays punishable, the burden of credibility moves from the regulator to whoever verifies.',
       },
     },
     {
-      tipo: { pt: 'resumo apresentado \u00b7 trabalho pontual', en: 'conference abstract \u00b7 one-off' },
-      nome: 'Conservação de energia em integradores numéricos: quando um método de ordem 1 supera o RK4',
+      tipo: { pt: 'resumo apresentado · trabalho pontual', en: 'conference abstract · one-off' },
+      nome: {
+        pt: 'Conservação de energia em integradores numéricos: quando um método de ordem 1 supera o RK4',
+        en: 'Energy conservation in numerical integrators: when a first-order method outperforms RK4',
+      },
       meta: {
         pt: 'XI Workshop de Matemática e Matemática Aplicada · Alfenas, 2026 · com Pamela Oliveira',
         en: 'XI Workshop on Mathematics and Applied Mathematics · Alfenas, 2026 · with Pamela Oliveira',

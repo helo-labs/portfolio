@@ -581,6 +581,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     row-gap: 0;
   }
 
+  .abertura { padding-top: clamp(1.4rem, 4vh, 2.6rem); }
   .chamada { margin-top: 1.4rem; }
   .abertura-corpo { margin-top: 1.8rem; max-width: none; }
 
@@ -611,6 +612,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .topo-nome { max-width: 52vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   /* o nome quebra em duas linhas de qualquer jeito, então pode crescer */
+  .abertura { padding-top: 1.1rem; }
   .nome { font-size: 12.6vw; letter-spacing: -0.035em; }
   .chamada { font-size: 1.5rem; }
   .linha-chamada:nth-child(2) { padding-left: 0.35em; }
