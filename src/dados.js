@@ -230,6 +230,6 @@ export const CONVITE = {
 }
 
 export const RODAPE = {
-  pt: 'heloisa pimentel · alfenas, mg · 2026',
-  en: 'heloisa pimentel · alfenas, brazil · 2026',
+  pt: 'heloisa pimentel · 2026',
+  en: 'heloisa pimentel · 2026',
 }
